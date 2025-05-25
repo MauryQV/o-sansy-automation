@@ -17,19 +17,15 @@ export class ConvocatoriaPage {
     }
 
     llenarFormulario(data) {
-        cy.get(this.nombreInput).type(data.nombre);
-        cy.get(this.estadoSelect).should('be.visible').select(data.estado);
-        cy.get(this.descripcionTextarea).type(data.descripcion);
-
-        // Establecer valores de fecha con invoke
-        cy.get(this.inscripcionInicio).type(data.inscripcionInicio);
-        cy.get(this.inscripcionFin).type(data.inscripcionFin);
-        cy.get(this.pagoInicio).type(data.pagoInicio);
-        cy.get(this.pagoFin).type(data.pagoFin);
-        cy.get(this.competenciaInicio).type(data.competenciaInicio);
-        cy.get(this.competenciaFin).type(data.competenciaFin);
-
-        // Seleccionar al menos un área de competencia
+        cy.get(this.nombreInput).clear().type(data.nombre);
+        cy.get(this.estadoSelect).select(data.estado);
+        cy.get(this.descripcionTextarea).clear().type(data.descripcion);
+        cy.get(this.inscripcionInicio).clear().type(data.inscripcionInicio);
+        cy.get(this.inscripcionFin).clear().type(data.inscripcionFin);
+        cy.get(this.pagoInicio).clear().type(data.pagoInicio);
+        cy.get(this.pagoFin).clear().type(data.pagoFin);
+        cy.get(this.competenciaInicio).clear().type(data.competenciaInicio);
+        cy.get(this.competenciaFin).clear().type(data.competenciaFin);
         cy.get(this.areasCheckbox).first().check({ force: true });
     }
 

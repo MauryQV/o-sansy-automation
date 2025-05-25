@@ -16,9 +16,10 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: process.env.CYPRESS_BASE_URL,
     setupNodeEvents(on, config) {
-      config = dotenvPlugin(config); 
+      config = dotenvPlugin(config);
       mochawesome(on);
       return config;
     },
   },
 });
+
